@@ -81,6 +81,45 @@
   .info-block .rowi span{color:var(--muted);}
   .info-block p{margin:0;color:var(--ink);}
 
+  /* About 전용 라운드 프로필 - 그 외 Claude 레이아웃은 유지 */
+  .about-round-layout{display:grid;grid-template-columns:430px 1fr;gap:58px;align-items:center;}
+  .profile-orbit{position:relative;width:100%;max-width:410px;aspect-ratio:1/1;margin:auto;}
+  .profile-orbit .orb{position:absolute;border:1.5px solid var(--line);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-size:.78rem;font-weight:800;line-height:1.25;}
+  .profile-orbit .orb.center{inset:30%;background:#fff;z-index:3;}
+  .profile-orbit .orb.ai{width:39%;aspect-ratio:1;left:30.5%;top:0;background:var(--orange);color:#fff;border-color:var(--orange);}
+  .profile-orbit .orb.arch{width:39%;aspect-ratio:1;right:0;top:29%;background:var(--navy);color:#fff;border-color:var(--navy);}
+  .profile-orbit .orb.data{width:39%;aspect-ratio:1;left:0;top:29%;background:#fff;}
+  .profile-orbit .orb.build{width:39%;aspect-ratio:1;left:10%;bottom:1%;background:#fff;}
+  .profile-orbit .orb.refactor{width:39%;aspect-ratio:1;right:10%;bottom:1%;background:var(--orange-soft);color:var(--orange);}
+  .about-details{border-top:1px solid var(--line);}
+  .about-detail{display:grid;grid-template-columns:125px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line);}
+  .about-detail .k{margin:0;color:var(--orange);font-size:.78rem;font-weight:800;letter-spacing:.06em;}
+  .about-detail p{margin:0;}
+  .about-detail span{color:var(--muted);font-size:.92rem;}
+  @media (max-width:850px){.about-round-layout{grid-template-columns:1fr;gap:36px;}.profile-orbit{max-width:360px;}}
+  @media (max-width:520px){.about-detail{grid-template-columns:1fr;gap:5px;}.profile-orbit{max-width:310px;}}
+
+  /* PROJECT 04 실행화면만 추가 */
+  .run-gallery{margin-top:30px;padding-top:26px;border-top:1px solid var(--line);}
+  .run-gallery-head{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:16px;}
+  .run-gallery-head h4{margin:0;font-size:1.05rem;}
+  .run-gallery-head p{margin:0;color:var(--muted);font-size:.82rem;}
+  .library-run-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+  .desktop-run-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;}
+  .mobile-run-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+  .run-shot{margin:0;padding:8px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 10px 28px rgba(15,30,51,.07);overflow:hidden;}
+  .run-shot>img{width:100%;display:block;border-radius:8px;background:#F3EFE7;}
+  .library-run-grid .run-shot>img{aspect-ratio:1180/740;object-fit:cover;}
+  .desktop-run-grid .run-shot>img{aspect-ratio:4/5;object-fit:contain;}
+  .run-shot figcaption{padding:9px 4px 3px;font-size:.78rem;font-weight:700;text-align:center;}
+  .mobile-frame{position:relative;width:100%;aspect-ratio:440/570;overflow:hidden;border-radius:9px;background:#F2F4F2;}
+  .mobile-frame .base{width:100%;height:100%;object-fit:cover;display:block;}
+  .mobile-frame .menu-shot{position:absolute;width:14%;height:12%;object-fit:contain;filter:drop-shadow(0 2px 2px rgba(0,0,0,.08));}
+  .mobile-frame .m1{left:28%;top:32.5%;}.mobile-frame .m2{left:65%;top:32.5%;}.mobile-frame .m3{left:28%;top:51.2%;}.mobile-frame .m4{left:65%;top:51.2%;}
+  .ppt-mobile img{position:absolute;max-width:none;width:auto;height:140%;left:-17%;top:-17%;}
+  @media (max-width:900px){.desktop-run-grid{grid-template-columns:repeat(2,1fr);}.library-run-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:640px){.library-run-grid,.desktop-run-grid,.mobile-run-grid{grid-template-columns:1fr;}.run-gallery-head{align-items:flex-start;flex-direction:column;}.mobile-run-grid .run-shot{max-width:360px;margin-left:auto;margin-right:auto;}}
+
   .flow{position:relative;display:flex;justify-content:space-between;gap:16px;margin:0 0 34px;}
   .flow-line{position:absolute;top:22px;left:9%;right:9%;height:2px;background:var(--line);z-index:0;}
   .flow-step{position:relative;z-index:1;flex:1;text-align:center;padding:0 6px;}
@@ -238,28 +277,21 @@
   <p class="eyebrow">About</p>
   <p class="about-quote">경력은 배경이고, 포트폴리오는 문제를 푼 방식입니다.</p>
   <p class="sec-lead">복잡한 현장 문제를 시스템 책임과 데이터 흐름으로 번역해 온 경력을, 최근 AI·웹서비스의 기획·설계·개발로 확장했습니다.</p>
-
-  <div class="about-grid">
-    <div>
-      <div class="info-block">
-        <p class="k">현재 포지션</p>
-        <p><b>AI, 웹서비스 기획</b></p>
-      </div>
-      <div class="info-block" style="margin-top:26px;">
-        <p class="k">CAREER</p>
-        <div class="rowi"><b>35년 2개월</b><span>LG화학 · 설비보전 · 자재 · 생산 · 물류</span></div>
-        <div class="rowi"><b>2025.03 – 현재</b><span>AI · 웹서비스 기획 · 설계 · 개발</span></div>
-      </div>
+  <div class="about-round-layout">
+    <div class="profile-orbit" aria-label="핵심 역량 구조">
+      <div class="orb center">PM</div>
+      <div class="orb ai">AI·WEB<br>SERVICE</div>
+      <div class="orb arch">ARCHI-<br>TECTURE</div>
+      <div class="orb data">DATA</div>
+      <div class="orb build">BUILD</div>
+      <div class="orb refactor">REFACTOR</div>
     </div>
-    <div>
-      <div class="info-block">
-        <p class="k">EDUCATION</p>
-        <div class="rowi"><b>한양사이버대학교</b><span>정보통신공학 · 2009.03–2013.03 졸업</span></div>
-      </div>
-      <div class="info-block" style="margin-top:26px;">
-        <p class="k">LICENSE</p>
-        <p>위험물안전관리자 · 전자상거래관리사 2급 · 인터넷정보검색사 2급 · 기능사 2종</p>
-      </div>
+    <div class="about-details">
+      <div class="about-detail"><p class="k">POSITION</p><p><b>AI·웹서비스 기획 / Technical PM</b></p></div>
+      <div class="about-detail"><p class="k">CAREER</p><p><b>35년 2개월</b><br><span>LG화학 · 설비보전 · 자재 · 생산 · 물류</span></p></div>
+      <div class="about-detail"><p class="k">RECENT</p><p><b>2025.03 – 현재</b><br><span>AI · 웹서비스 기획 · 설계 · 개발</span></p></div>
+      <div class="about-detail"><p class="k">EDUCATION</p><p><b>한양사이버대학교 정보통신공학</b><br><span>2009.03–2013.03 졸업</span></p></div>
+      <div class="about-detail"><p class="k">LICENSE</p><p>위험물안전관리자 · 전자상거래관리사 2급<br><span>인터넷정보검색사 2급 · 기능사 2종</span></p></div>
     </div>
   </div>
 </section>
@@ -450,6 +482,17 @@
         <li>3팔레트 테마 전환(세이지 · 포레스트 · 인디고), 공통 테이블 스타일 모듈화</li>
       </ul>
       <div class="chips"><span class="chip">Python</span><span class="chip">PySide6</span><span class="chip">Qt Designer</span></div>
+      <div class="run-gallery">
+        <div class="run-gallery-head"><h4>Qt Library 실행화면</h4><p>PDF 원본 190–205 이미지 적용</p></div>
+        <div class="library-run-grid">
+          <figure class="run-shot"><img src="assets/library-190.png" alt="Qt Library 관리자 메인 화면" loading="lazy"><figcaption>관리자 메인</figcaption></figure>
+          <figure class="run-shot"><img src="assets/library-193.png" alt="Qt Library 일반회원 대출 화면" loading="lazy"><figcaption>도서 대출</figcaption></figure>
+          <figure class="run-shot"><img src="assets/library-196.png" alt="Qt Library 예약관리 화면" loading="lazy"><figcaption>예약 관리</figcaption></figure>
+          <figure class="run-shot"><img src="assets/library-199.png" alt="Qt Library 도서관리 화면" loading="lazy"><figcaption>도서 관리</figcaption></figure>
+          <figure class="run-shot"><img src="assets/library-202.png" alt="Qt Library 회원관리 화면" loading="lazy"><figcaption>회원 관리</figcaption></figure>
+          <figure class="run-shot"><img src="assets/library-205.png" alt="Qt Library 회원 정보조회 화면" loading="lazy"><figcaption>정보 조회</figcaption></figure>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -467,6 +510,32 @@
         <li>Windows 렌더링 이슈 대응(Fusion 스타일 적용)</li>
       </ul>
       <div class="chips"><span class="chip">Python</span><span class="chip">PySide6</span><span class="chip">Qt</span></div>
+      <div class="run-gallery">
+        <div class="run-gallery-head"><h4>Qt Kiosk 메인 실행화면</h4><p>12번 이미지 크기 기준 · 4개 가로 1행</p></div>
+        <div class="desktop-run-grid">
+          <figure class="run-shot"><img src="assets/qt-main.png" alt="Qt Kiosk 메인 메뉴 화면" loading="lazy"><figcaption>메인 화면</figcaption></figure>
+          <figure class="run-shot"><img src="assets/qt-cart.png" alt="Qt Kiosk 주문담기 화면" loading="lazy"><figcaption>주문 담기</figcaption></figure>
+          <figure class="run-shot"><img src="assets/qt-stamp.png" alt="Qt Kiosk 회원 스탬프 화면" loading="lazy"><figcaption>회원·스탬프</figcaption></figure>
+          <figure class="run-shot"><img src="assets/qt-receipt.png" alt="Qt Kiosk 영수증 화면" loading="lazy"><figcaption>영수증</figcaption></figure>
+        </div>
+      </div>
+      <div class="run-gallery">
+        <div class="run-gallery-head"><h4>Qt Kiosk 모바일 실행화면</h4><p>11번 모바일 크기 기준 · 3개 가로 1행</p></div>
+        <div class="mobile-run-grid">
+          <figure class="run-shot">
+            <div class="mobile-frame">
+              <img class="base" src="assets/mobile-menu-base.png" alt="Qt Kiosk 모바일 메뉴 화면">
+              <img class="menu-shot m1" src="assets/menu-americano.jpg" alt="아메리카노 메뉴 이미지">
+              <img class="menu-shot m2" src="assets/menu-latte.jpg" alt="카페라떼 메뉴 이미지">
+              <img class="menu-shot m3" src="assets/menu-strawberry.jpg" alt="딸기주스 메뉴 이미지">
+              <img class="menu-shot m4" src="assets/menu-blueberry.jpg" alt="블루베리플럼주스 메뉴 이미지">
+            </div>
+            <figcaption>메뉴·옵션 선택</figcaption>
+          </figure>
+          <figure class="run-shot"><div class="mobile-frame ppt-mobile"><img src="assets/mobile-cart-slide.png" alt="Qt Kiosk 모바일 장바구니와 스탬프 화면"></div><figcaption>장바구니·스탬프</figcaption></figure>
+          <figure class="run-shot"><div class="mobile-frame ppt-mobile"><img src="assets/mobile-receipt-slide.png" alt="Qt Kiosk 모바일 주문완료 영수증 화면"></div><figcaption>결제·영수증</figcaption></figure>
+        </div>
+      </div>
     </div>
   </div>
 
