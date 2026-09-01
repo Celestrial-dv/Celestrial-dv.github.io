@@ -56,7 +56,7 @@
   section>*:first-child{margin-top:0;}
   .eyebrow{color:var(--orange);font-weight:700;font-size:.9rem;margin:0 0 10px;}
   .sec-h{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;margin:0 0 14px;line-height:1.15;}
-  .sec-lead{color:var(--muted);font-size:1.1rem;max-width:64ch;margin:0 0 40px;}
+  .sec-lead{color:var(--muted);font-size:1.1rem;max-width:66ch;margin:0 0 40px;}
   .meta-row{display:flex;flex-wrap:wrap;gap:36px;margin:0 0 40px;}
   .meta-row .m .lab{color:var(--orange);font-weight:700;font-size:.82rem;margin:0 0 4px;}
   .meta-row .m .val{font-weight:700;}
@@ -295,7 +295,7 @@
 <section id="about" class="wrap">
   <p class="eyebrow">About</p>
   <p class="sec-h">경력은 배경이고, 포트폴리오는 문제를 푼 방식입니다.</p>
-  <p class="sec-lead">복잡한 현장 문제를 시스템 책임과 데이터 흐름으로 번역해 온 경력을, 최근 AI·웹서비스의 기획·설계·개발로 확장했습니다.</p>
+  <p class="sec-lead">복잡한 현장 문제를 시스템 책임과 데이터 흐름으로 번역해 온 경력을, 최근 AI·웹서비스의 기획·<br>설계·개발로 확장했습니다.</p>
   <div class="about-round-layout">
     <div class="profile-orbit" aria-label="핵심 역량 구조">
       <div class="orb center">PM</div>
@@ -354,7 +354,7 @@
     <div class="cap a">
       <span class="cap-lab">03</span>
       <h3>ExWS</h3>
-      <p>무선 자재관리 시스템 · 현장 · 데이터 · 프로세스</p>
+      <p>무선 자재관리 시스템 · 현장 · 데이터 · <br>프로세스</p>
     </div>
   </div>
   <p style="color:var(--muted);margin-top:26px;font-size:.95rem;">
@@ -391,7 +391,7 @@
   </div>
   <div class="panel">
     <p class="plab">SOLUTION</p>
-    <p>수집부터 병합·가공·동기화까지 책임 경계와 상태 지표를 분리하고, 데이터 파이프라인을 그대로 운영 화면으로 연결했습니다. 모바일에서도 운영 상태를 한눈에 확인할 수 있게 정보 구조를 재배치했습니다.</p>
+    <p>수집부터 병합·가공·동기화까지 책임 경계와 상태 지표를 분리하고, 데이터 파이프라인을 그대로 운영 화면으로 연결했습니다. <br>모바일에서도 운영 상태를 한눈에 확인할 수 있게 정보 구조를 재배치했습니다.</p>
   </div>
 </section>
 
@@ -474,10 +474,10 @@
     <div class="sp-side">
       <p class="sp-num">01</p>
       <h3>CLI Kiosk</h3>
-      <p class="sp-meta">Kiost_PJT · 텍스트 기반</p>
+      <p class="sp-meta">Kiosk_PJT · 텍스트 기반</p>
     </div>
     <div class="sp-body">
-      <p>외부 라이브러리 없이 파이썬으로 만든 카페 주문 시스템. 레이어드 모듈 구조로 역할을 분리하며 첫 프로젝트에서 아키텍처의 기준을 세웠습니다.</p>
+      <p>외부 라이브러리 없이 파이썬으로 만든 카페 주문 시스템. 레이어드 모듈 구조로 역할을 분리하며 첫 프로젝트에서 <br>아키텍처의 기준을 세웠습니다.</p>
       <ul>
         <li>메뉴 · 옵션 · 장바구니 · 회원 · 결제 · 관리자 · 매출 모듈 분리</li>
         <li>회원 스탬프 적립/할인, 주문번호 일자별 채번, 결제 시점 재고 차감</li>
@@ -494,7 +494,7 @@
       <p class="sp-meta">Library_PJT · PySide6 GUI</p>
     </div>
     <div class="sp-body">
-      <p>CLI에서 검증한 모듈 통합 방식을 GUI 도서 관리 시스템으로 확장. 동작하는 화면보다 데이터 기준과 책임 경계를 먼저 정의했습니다.</p>
+      <p>CLI에서 검증한 모듈 통합 방식을 GUI 도서 관리 시스템으로 확장. 동작하는 화면보다 데이터 기준과 책임 경계를 <br>먼저 정의했습니다.</p>
       <ul>
         <li>2,464행 실데이터, PK 정합성 · 저장→재조회 검증</li>
         <li>로그인 권한별 접근 화면(관리자 · 사서 · 일반회원)</li>
@@ -519,7 +519,7 @@
     <div class="sp-side">
       <p class="sp-num">03</p>
       <h3>Qt Kiosk</h3>
-      <p class="sp-meta">Qt_Kiost · PySide6 GUI</p>
+      <p class="sp-meta">Qt_Kiosk_PJT · PySide6 GUI</p>
     </div>
     <div class="sp-body">
       <p>CLI Kiosk를 Qt GUI로 이식. 기존 데이터와 저장 방식을 재사용하면서 화면·이벤트 중심 구조로 재구성했습니다.</p>
@@ -527,6 +527,7 @@
         <li>menu.csv(48개 항목) 재사용, 카테고리 · 단가 · 재고 컬럼 유지</li>
         <li>3열 카드형 메뉴 그리드, 장바구니 상태 관리</li>
         <li>Windows 렌더링 이슈 대응(Fusion 스타일 적용)</li>
+        <li>관리자 진입점 히든 모드</li>
       </ul>
       <div class="chips"><span class="chip">Python</span><span class="chip">PySide6</span><span class="chip">Qt Designer</span></div>
       <div class="run-gallery">
