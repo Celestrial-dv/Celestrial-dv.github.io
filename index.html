@@ -36,7 +36,19 @@
   .nav-links{display:flex;gap:24px;font-size:.92rem;}
   .nav-links a{color:var(--muted);}
   .nav-links a:hover{color:var(--ink);text-decoration:none;}
-  @media (max-width:640px){.nav-links{display:none;}}
+  @media (max-width:640px){
+    html{scroll-padding-top:108px;}
+    .nav-in{padding:10px 16px 8px;flex-direction:column;align-items:stretch;gap:7px;}
+    .nav-in .name{display:block;line-height:1.3;}
+    .nav-links{
+      display:flex;width:100%;gap:18px;padding:2px 0 4px;
+      overflow-x:auto;overscroll-behavior-x:contain;white-space:nowrap;
+      scrollbar-width:none;-webkit-overflow-scrolling:touch;
+    }
+    .nav-links::-webkit-scrollbar{display:none;}
+    .nav-links a{flex:0 0 auto;font-size:.82rem;}
+    section{scroll-margin-top:108px;}
+  }
 
   .wrap{max-width:var(--maxw);margin:0 auto;padding-left:24px;padding-right:24px;}
   section{padding-top:80px;padding-bottom:80px;border-top:1px solid var(--line);scroll-snap-align:start;scroll-margin-top:72px;}
@@ -44,7 +56,7 @@
   section>*:first-child{margin-top:0;}
   .eyebrow{color:var(--orange);font-weight:700;font-size:.9rem;margin:0 0 10px;}
   .sec-h{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;margin:0 0 14px;line-height:1.15;}
-  .sec-lead{color:var(--muted);font-size:1.1rem;max-width:66ch;margin:0 0 40px;}
+  .sec-lead{color:var(--muted);font-size:1.1rem;max-width:64ch;margin:0 0 40px;}
   .meta-row{display:flex;flex-wrap:wrap;gap:36px;margin:0 0 40px;}
   .meta-row .m .lab{color:var(--orange);font-weight:700;font-size:.82rem;margin:0 0 4px;}
   .meta-row .m .val{font-weight:700;}
@@ -116,9 +128,16 @@
   .mobile-frame .base{width:100%;height:100%;object-fit:cover;display:block;}
   .mobile-frame .menu-shot{position:absolute;width:14%;height:12%;object-fit:contain;filter:drop-shadow(0 2px 2px rgba(0,0,0,.08));}
   .mobile-frame .m1{left:28%;top:32.5%;}.mobile-frame .m2{left:65%;top:32.5%;}.mobile-frame .m3{left:28%;top:51.2%;}.mobile-frame .m4{left:65%;top:51.2%;}
-  .ppt-mobile img{position:absolute;max-width:none;width:auto;height:140%;left:-17%;top:-17%;}
+  .ppt-mobile img{position:absolute;max-width:none;width:auto;height:147%;left:-20%;top:-36%;}
   @media (max-width:900px){.desktop-run-grid{grid-template-columns:repeat(2,1fr);}.library-run-grid{grid-template-columns:repeat(2,1fr);}}
-  @media (max-width:640px){.library-run-grid,.desktop-run-grid,.mobile-run-grid{grid-template-columns:1fr;}.run-gallery-head{align-items:flex-start;flex-direction:column;}.mobile-run-grid .run-shot{max-width:360px;margin-left:auto;margin-right:auto;}}
+  @media (max-width:640px){
+    .library-run-grid,.desktop-run-grid,.mobile-run-grid{grid-template-columns:minmax(0,1fr);}
+    .run-gallery-head{align-items:flex-start;flex-direction:column;}
+    .mobile-run-grid{width:100%;gap:20px;}
+    .mobile-run-grid .run-shot{width:100%;min-width:0;max-width:440px;margin-left:auto;margin-right:auto;}
+    .mobile-run-grid .mobile-frame{width:100%;aspect-ratio:440/570;}
+    .mobile-run-grid .ppt-mobile img{height:147%;left:-20%;top:-36%;}
+  }
 
   .flow{position:relative;display:flex;justify-content:space-between;gap:16px;margin:0 0 34px;}
   .flow-line{position:absolute;top:22px;left:9%;right:9%;height:2px;background:var(--line);z-index:0;}
@@ -230,7 +249,7 @@
 
 <nav>
   <div class="nav-in">
-    <span class="name">DEUK OH KIM</span>
+    <span class="name">김득오</span>
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#how">How I Work</a>
@@ -244,7 +263,7 @@
 <!-- HERO / COVER (p.01) -->
 <header class="hero wrap">
   <p class="tags">Architecture · Process · Data &amp; Refactoring · Service Planning</p>
-  <h1>DEUK OH KIM</h1>
+  <h1>김득오</h1>
   <p class="role">소통과 협업을 통해 서로의 강점을 조합하는 기획자</p>
   <p class="sub">35년 도메인 경험을 AI·웹서비스 기획·설계·개발로 연결한 Project Manager</p>
   <div class="contact-line">
@@ -275,7 +294,7 @@
 <!-- ABOUT (p.02) -->
 <section id="about" class="wrap">
   <p class="eyebrow">About</p>
-  <p class="sec-h">경력은 배경이고, 포트폴리오는 문제를 푼 방식입니다.</p>
+  <p class="about-quote">경력은 배경이고, 포트폴리오는 문제를 푼 방식입니다.</p>
   <p class="sec-lead">복잡한 현장 문제를 시스템 책임과 데이터 흐름으로 번역해 온 경력을, 최근 AI·웹서비스의 기획·설계·개발로 확장했습니다.</p>
   <div class="about-round-layout">
     <div class="profile-orbit" aria-label="핵심 역량 구조">
@@ -335,7 +354,7 @@
     <div class="cap a">
       <span class="cap-lab">03</span>
       <h3>ExWS</h3>
-      <p>무선 자재관리 시스템 · 현장 · 데이터 · <br>프로세스</p>
+      <p>무선 자재관리 시스템 · 현장 · 데이터 · 프로세스</p>
     </div>
   </div>
   <p style="color:var(--muted);margin-top:26px;font-size:.95rem;">
@@ -372,7 +391,7 @@
   </div>
   <div class="panel">
     <p class="plab">SOLUTION</p>
-    <p>수집부터 병합·가공·동기화까지 책임 경계와 상태 지표를 분리하고, 데이터 파이프라인을 그대로 운영 화면으로 연결했습니다. <br>모바일에서도 운영 상태를 한눈에 확인할 수 있게 정보 구조를 재배치했습니다.</p>
+    <p>수집부터 병합·가공·동기화까지 책임 경계와 상태 지표를 분리하고, 데이터 파이프라인을 그대로 운영 화면으로 연결했습니다. 모바일에서도 운영 상태를 한눈에 확인할 수 있게 정보 구조를 재배치했습니다.</p>
   </div>
 </section>
 
@@ -380,7 +399,7 @@
 <section class="wrap proj">
   <p class="proj-tag">PROJECT 02 · NANOBANANA API</p>
   <h2>NanoBanana API 프롬프트 서비스</h2>
-  <p class="sec-lead">좋은 프롬프트를 찾는 경험과 실제 이미지 생성·결제·기록이 서로 분리되어 있었습니다. <br>발견→이해→생성→결제→기록을 하나의 제품 경험으로 연결했습니다.</p>
+  <p class="sec-lead">좋은 프롬프트를 찾는 경험과 실제 이미지 생성·결제·기록이 서로 분리되어 있었습니다. 발견→이해→생성→결제→기록을 하나의 제품 경험으로 연결했습니다.</p>
   <div class="meta-row">
     <div class="m"><p class="lab">ORDER</p><p class="val">K-Beauty 이후</p></div>
     <div class="m"><p class="lab">ROLE</p><p class="val">PM · UX · Full-Stack · DB</p></div>
@@ -398,7 +417,7 @@
   <div class="stats" style="grid-template-columns:repeat(3,1fr);">
     <div class="stat"><p class="num">9,504+</p><p class="lab">프롬프트</p></div>
     <div class="stat"><p class="num">802</p><p class="lab">크리에이터</p></div>
-    <div class="stat"><p class="num">1,681 · 20</p><p class="lab">템플릿 · 카테고리</p></div>
+    <div class="stat"><p class="num">681 · 20</p><p class="lab">템플릿 · 카테고리</p></div>
   </div>
 
   <p class="bg-note" style="font-size:1.05rem;">Refactoring — 운영의 한계를 리팩토링 기준으로 (DB 스키마·카테고리 변경 없음, 무중단)</p>
@@ -444,7 +463,7 @@
 <section class="wrap proj">
   <p class="proj-tag">PROJECT 04 · PYTHON TEAM PROJECTS</p>
   <h2>CLI에서 Qt GUI까지, Python 프로젝트</h2>
-  <p class="sec-lead">텍스트 기반 CLI에서 시작해, 같은 설계 원칙(설정 단일화·모듈 분리·데이터 기준)을 <br>Qt GUI 애플리케이션으로 확장했습니다.</p>
+  <p class="sec-lead">텍스트 기반 CLI에서 시작해, 같은 설계 원칙(설정 단일화·모듈 분리·데이터 기준)을 Qt GUI 애플리케이션으로 확장했습니다.</p>
   <div class="meta-row">
     <div class="m"><p class="lab">ORDER</p><p class="val">CLI Kiosk → Qt Library → Qt Kiosk</p></div>
     <div class="m"><p class="lab">STACK</p><p class="val">Python · PySide6 · Qt Designer</p></div>
@@ -458,7 +477,7 @@
       <p class="sp-meta">Kiost_PJT · 텍스트 기반</p>
     </div>
     <div class="sp-body">
-      <p>외부 라이브러리 없이 파이썬으로 만든 카페 주문 시스템. 레이어드 모듈 구조로 역할을 분리하며 첫 프로젝트에서 <br>아키텍처의 기준을 세웠습니다.</p>
+      <p>외부 라이브러리 없이 파이썬으로 만든 카페 주문 시스템. 레이어드 모듈 구조로 역할을 분리하며 첫 프로젝트에서 아키텍처의 기준을 세웠습니다.</p>
       <ul>
         <li>메뉴 · 옵션 · 장바구니 · 회원 · 결제 · 관리자 · 매출 모듈 분리</li>
         <li>회원 스탬프 적립/할인, 주문번호 일자별 채번, 결제 시점 재고 차감</li>
@@ -475,7 +494,7 @@
       <p class="sp-meta">Library_PJT · PySide6 GUI</p>
     </div>
     <div class="sp-body">
-      <p>CLI에서 검증한 모듈 통합 방식을 GUI 도서 관리 시스템으로 확장. 동작하는 화면보다 데이터 기준과 책임 경계를 <br>먼저 정의했습니다.</p>
+      <p>CLI에서 검증한 모듈 통합 방식을 GUI 도서 관리 시스템으로 확장. 동작하는 화면보다 데이터 기준과 책임 경계를 먼저 정의했습니다.</p>
       <ul>
         <li>2,464행 실데이터, PK 정합성 · 저장→재조회 검증</li>
         <li>로그인 권한별 접근 화면(관리자 · 사서 · 일반회원)</li>
@@ -483,7 +502,7 @@
       </ul>
       <div class="chips"><span class="chip">Python</span><span class="chip">PySide6</span><span class="chip">Qt Designer</span></div>
       <div class="run-gallery">
-        <div class="run-gallery-head"><h4>Qt Library 실행화면</h4><p>실제 작동 이미지</p></div>
+        <div class="run-gallery-head"><h4>Qt Library 실행화면</h4><p>PDF 원본 190–205 이미지 적용</p></div>
         <div class="library-run-grid">
           <figure class="run-shot"><img src="assets/library-190.png" alt="Qt Library 관리자 메인 화면" loading="lazy"><figcaption>관리자 메인</figcaption></figure>
           <figure class="run-shot"><img src="assets/library-193.png" alt="Qt Library 일반회원 대출 화면" loading="lazy"><figcaption>도서 대출</figcaption></figure>
@@ -500,7 +519,7 @@
     <div class="sp-side">
       <p class="sp-num">03</p>
       <h3>Qt Kiosk</h3>
-      <p class="sp-meta">Qt_Kiosk_PJT · PySide6 GUI</p>
+      <p class="sp-meta">Qt_Kiost · PySide6 GUI</p>
     </div>
     <div class="sp-body">
       <p>CLI Kiosk를 Qt GUI로 이식. 기존 데이터와 저장 방식을 재사용하면서 화면·이벤트 중심 구조로 재구성했습니다.</p>
@@ -508,11 +527,10 @@
         <li>menu.csv(48개 항목) 재사용, 카테고리 · 단가 · 재고 컬럼 유지</li>
         <li>3열 카드형 메뉴 그리드, 장바구니 상태 관리</li>
         <li>Windows 렌더링 이슈 대응(Fusion 스타일 적용)</li>
-        <li>관리자 진입점 히든 모드</li>
       </ul>
-      <div class="chips"><span class="chip">Python</span><span class="chip">PySide6</span><span class="chip">Qt Designer</span></div>
+      <div class="chips"><span class="chip">Python</span><span class="chip">PySide6</span><span class="chip">Qt</span></div>
       <div class="run-gallery">
-        <div class="run-gallery-head"><h4>Qt Kiosk 메인 실행화면</h4><p>실제 작동 이미지</p></div>
+        <div class="run-gallery-head"><h4>Qt Kiosk 메인 실행화면</h4><p>12번 이미지 크기 기준 · 4개 가로 1행</p></div>
         <div class="desktop-run-grid">
           <figure class="run-shot"><img src="assets/qt-main.png" alt="Qt Kiosk 메인 메뉴 화면" loading="lazy"><figcaption>메인 화면</figcaption></figure>
           <figure class="run-shot"><img src="assets/qt-cart.png" alt="Qt Kiosk 주문담기 화면" loading="lazy"><figcaption>주문 담기</figcaption></figure>
@@ -521,7 +539,7 @@
         </div>
       </div>
       <div class="run-gallery">
-        <div class="run-gallery-head"><h4>Qt Kiosk 모바일 실행화면</h4><p>실제 작동 이미지</p></div>
+        <div class="run-gallery-head"><h4>Qt Kiosk 모바일 실행화면</h4><p>11번 모바일 크기 기준 · 3개 가로 1행</p></div>
         <div class="mobile-run-grid">
           <figure class="run-shot">
             <div class="mobile-frame">
@@ -550,7 +568,7 @@
 <section id="evidence" class="wrap">
   <p class="eyebrow">Evidence Map</p>
   <h2 class="sec-h">주장보다 프로젝트 증거로</h2>
-  <p class="sec-lead">지원 직무 역량을 프로젝트 업무에 맞게 재설계·응용·적용했습니다. <br>(Target role: AI·웹서비스 기획 · 서비스 아키텍처 · 데이터 구조화·리팩토링 · Technical PM)</p>
+  <p class="sec-lead">지원 직무 역량을 프로젝트 업무에 맞게 재설계·응용·적용했습니다. (Target role: AI·웹서비스 기획 · 서비스 아키텍처 · 데이터 구조화·리팩토링 · Technical PM)</p>
 
   <div class="ev hot">
     <div class="cap-name">ARCHITECTURE</div>
@@ -593,17 +611,17 @@
     <div class="circle o1"><p class="cn">01</p><h4>문제 구조화</h4><p>현장·사용자 문제를 설계 언어로 전환</p></div>
     <div class="circle o2"><p class="cn">02</p><h4>책임 경계</h4><p>서비스·데이터·권한의 역할을 분리</p></div>
     <div class="circle o3"><p class="cn">03</p><h4>직접 구현</h4><p>기획에서 DB·백엔드·QA까지 연결</p></div>
-    <div class="circle o4"><p class="cn">04</p><h4>운영 개선</h4><p>UX·구조화·로그·모니터링 등 <br>운영 최적화</p></div>
+    <div class="circle o4"><p class="cn">04</p><h4>운영 개선</h4><p>UX·구조화·로그·모니터링 등 운영 최적화</p></div>
   </div>
 
   <div class="contact-final">
-    <span class="who">DEUK OH KIM</span>
+    <span class="who">김득오</span>
     <span class="cc"><a href="mailto:mikod72@naver.com">mikod72@naver.com</a> · 010-2542-7112 · <a href="https://github.com/Celestrial-dv" target="_blank" rel="noopener">github.com/Celestrial-dv</a></span>
   </div>
 </section>
 
 <footer class="wrap">
-  © 2026 DEUK OH KIM · Portfolio. Built with GitHub Pages.
+  © 2026 김득오 · Portfolio. Built with GitHub Pages.
 </footer>
 
 </body>
