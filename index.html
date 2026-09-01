@@ -19,7 +19,7 @@
     --maxw:1080px;
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;scroll-padding-top:72px;scroll-snap-type:y proximity;}
   body{
     margin:0;background:var(--paper);color:var(--ink);
     font-family:"Pretendard",system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -39,7 +39,7 @@
   @media (max-width:640px){.nav-links{display:none;}}
 
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
-  section{padding:88px 0;border-top:1px solid var(--line);}
+  section{padding:96px 0;border-top:1px solid var(--line);scroll-snap-align:start;scroll-margin-top:72px;}
   .eyebrow{color:var(--orange);font-weight:700;font-size:.9rem;margin:0 0 10px;}
   .sec-h{font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;margin:0 0 14px;line-height:1.15;}
   .sec-lead{color:var(--muted);font-size:1.1rem;max-width:64ch;margin:0 0 40px;}
@@ -47,7 +47,7 @@
   .meta-row .m .lab{color:var(--orange);font-weight:700;font-size:.82rem;margin:0 0 4px;}
   .meta-row .m .val{font-weight:700;}
 
-  .hero{border-top:none;text-align:center;padding:96px 0 80px;}
+  .hero{border-top:none;text-align:center;padding:96px 0;scroll-snap-align:start;}
   .hero .tags{color:var(--orange);font-weight:700;margin:0 0 26px;}
   .hero h1{font-size:clamp(3rem,9vw,5.2rem);font-weight:800;margin:0 0 18px;}
   .hero .role{font-size:clamp(1.15rem,2.4vw,1.6rem);font-weight:700;margin:0 0 14px;}
@@ -106,6 +106,18 @@
   .proj-tag{color:var(--muted);font-weight:700;font-size:.82rem;letter-spacing:.06em;margin:0 0 12px;}
   .proj h2{font-size:clamp(1.9rem,4.5vw,3rem);font-weight:800;margin:0 0 12px;line-height:1.1;}
   .bg-note{font-weight:700;font-size:1.15rem;margin:24px 0 28px;line-height:1.5;}
+
+  .subproj{border-top:1px solid var(--line);padding:30px 0;display:grid;grid-template-columns:250px 1fr;gap:34px;}
+  .subproj:first-of-type{border-top:none;padding-top:6px;}
+  .subproj .sp-num{color:var(--orange);font-weight:800;font-size:.85rem;margin:0 0 6px;}
+  .subproj h3{font-size:1.35rem;font-weight:800;margin:0 0 6px;}
+  .subproj .sp-meta{color:var(--muted);font-size:.9rem;margin:0;}
+  .subproj .sp-body>p{margin:0 0 12px;}
+  .subproj ul{margin:0 0 14px;padding-left:18px;}
+  .subproj ul li{margin:0 0 6px;}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{font-size:.82rem;color:var(--orange);background:var(--orange-soft);border-radius:6px;padding:3px 10px;font-weight:600;}
+  @media (max-width:700px){.subproj{grid-template-columns:1fr;gap:12px;}}
 
   .layers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0 0 30px;}
   @media (max-width:820px){.layers{grid-template-columns:1fr 1fr;}}
@@ -397,24 +409,68 @@
 <!-- PROJECT 04 PYTHON TEAM (p.14-16) -->
 <section class="wrap proj">
   <p class="proj-tag">PROJECT 04 · PYTHON TEAM PROJECTS</p>
-  <h2>Kiosk → Library Management System</h2>
-  <p class="sec-lead">첫 프로젝트의 모듈 통합 경험을 Library의 데이터·권한·UI 아키텍처 리팩토링으로 확장했습니다.</p>
+  <h2>CLI에서 Qt GUI까지, Python 프로젝트</h2>
+  <p class="sec-lead">텍스트 기반 CLI에서 시작해, 같은 설계 원칙(설정 단일화·모듈 분리·데이터 기준)을 Qt GUI 애플리케이션으로 확장했습니다.</p>
   <div class="meta-row">
-    <div class="m"><p class="lab">ORDER</p><p class="val">Kiosk → Library</p></div>
+    <div class="m"><p class="lab">ORDER</p><p class="val">CLI Kiosk → Qt Library → Qt Kiosk</p></div>
     <div class="m"><p class="lab">STACK</p><p class="val">Python · PySide6 · Qt Designer</p></div>
-    <div class="m"><p class="lab">DATA</p><p class="val">2,464행 실데이터</p></div>
+    <div class="m"><p class="lab">ROLE</p><p class="val">아키텍처 · 모듈 설계 · 리팩토링</p></div>
   </div>
 
-  <p class="bg-note">동작하는 화면보다 데이터 기준과 책임 경계가 먼저 필요했습니다. — 데이터·권한·UI를 계층으로 분리</p>
-  <div class="layers">
-    <div class="layer"><p class="llab">CONFIG</p><p>경로 · 권한<br>테마 · 공통 상수</p></div>
-    <div class="layer navy"><p class="llab">MODULES</p><p>CSV I/O · 검색<br>대출 · 반납 · 회원</p></div>
-    <div class="layer"><p class="llab">GUI</p><p>PySide6 · Qt Designer<br>화면 · 이벤트 · 상태</p></div>
-    <div class="layer"><p class="llab">VALIDATION</p><p>PK 정합성<br>저장→재조회 · 권한 테스트</p></div>
+  <div class="subproj">
+    <div class="sp-side">
+      <p class="sp-num">01</p>
+      <h3>CLI Kiosk</h3>
+      <p class="sp-meta">Kiost_PJT · 텍스트 기반</p>
+    </div>
+    <div class="sp-body">
+      <p>외부 라이브러리 없이 파이썬으로 만든 카페 주문 시스템. 레이어드 모듈 구조로 역할을 분리하며 첫 프로젝트에서 아키텍처의 기준을 세웠습니다.</p>
+      <ul>
+        <li>메뉴 · 옵션 · 장바구니 · 회원 · 결제 · 관리자 · 매출 모듈 분리</li>
+        <li>회원 스탬프 적립/할인, 주문번호 일자별 채번, 결제 시점 재고 차감</li>
+        <li>orders.csv 기반 온디맨드 매출 집계, 로그 레벨 운영</li>
+      </ul>
+      <div class="chips"><span class="chip">Python</span><span class="chip">CSV</span><span class="chip">모듈 설계</span></div>
+    </div>
   </div>
+
+  <div class="subproj">
+    <div class="sp-side">
+      <p class="sp-num">02</p>
+      <h3>Qt Library Management System</h3>
+      <p class="sp-meta">Library_PJT · PySide6 GUI</p>
+    </div>
+    <div class="sp-body">
+      <p>CLI에서 검증한 모듈 통합 방식을 GUI 도서 관리 시스템으로 확장. 동작하는 화면보다 데이터 기준과 책임 경계를 먼저 정의했습니다.</p>
+      <ul>
+        <li>2,464행 실데이터, PK 정합성 · 저장→재조회 검증</li>
+        <li>로그인 권한별 접근 화면(관리자 · 사서 · 일반회원)</li>
+        <li>3팔레트 테마 전환(세이지 · 포레스트 · 인디고), 공통 테이블 스타일 모듈화</li>
+      </ul>
+      <div class="chips"><span class="chip">Python</span><span class="chip">PySide6</span><span class="chip">Qt Designer</span></div>
+    </div>
+  </div>
+
+  <div class="subproj">
+    <div class="sp-side">
+      <p class="sp-num">03</p>
+      <h3>Qt Kiosk</h3>
+      <p class="sp-meta">Qt_Kiost · PySide6 GUI</p>
+    </div>
+    <div class="sp-body">
+      <p>CLI Kiosk를 Qt GUI로 이식. 기존 데이터와 저장 방식을 재사용하면서 화면·이벤트 중심 구조로 재구성했습니다.</p>
+      <ul>
+        <li>menu.csv(48개 항목) 재사용, 카테고리 · 단가 · 재고 컬럼 유지</li>
+        <li>3열 카드형 메뉴 그리드, 장바구니 상태 관리</li>
+        <li>Windows 렌더링 이슈 대응(Fusion 스타일 적용)</li>
+      </ul>
+      <div class="chips"><span class="chip">Python</span><span class="chip">PySide6</span><span class="chip">Qt</span></div>
+    </div>
+  </div>
+
   <div class="panel">
-    <p class="plab">PROCESS</p>
-    <p>원천 데이터 확인 → PK·권한 기준 정의 → 모듈 분리 → GUI 연결 → 저장·재조회 검증. 실행 화면이 바뀌어도 데이터와 업무 규칙은 흔들리지 않는 구조를 만들었고, 로그인 계정의 역할·권한 로직과 UX 테마 전환도 구현했습니다.</p>
+    <p class="plab">공통 설계 원칙</p>
+    <p>설정을 config에 단일화하고, 모듈을 분리하고, 데이터 기준을 먼저 세운다 — 실행 화면이 바뀌어도 데이터와 업무 규칙은 흔들리지 않는 구조.</p>
   </div>
 </section>
 
