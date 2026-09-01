@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Celestrial-dv · Python Developer</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  :root{
+    --paper:#FAFAF6;
+    --ink:#17231D;
+    --muted:#5C6B63;
+    --line:#DCE1DB;
+    --accent:#2E6B52;
+    --accent-soft:#EAF1EC;
+    --maxw:860px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"Pretendard",system-ui,-apple-system,"Segoe UI",sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+
+  /* top nav */
+  nav{
+    position:sticky;top:0;z-index:10;
+    background:rgba(250,250,246,.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:14px 24px;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+  }
+  .brand{font-weight:800;letter-spacing:-.01em;}
+  .nav-links{display:flex;gap:22px;font-size:.92rem;}
+  .nav-links a{color:var(--muted);}
+  .nav-links a:hover{color:var(--ink);text-decoration:none;}
+
+  main{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  section{padding:72px 0;border-top:1px solid var(--line);}
+  section:first-of-type{border-top:none;}
+
+  /* hero */
+  .hero{padding:96px 0 84px;}
+  .hero .kicker{color:var(--accent);font-weight:600;margin:0 0 18px;}
+  .hero h1{
+    font-size:clamp(2.6rem,7vw,4.4rem);
+    line-height:1.05;font-weight:800;letter-spacing:-.03em;margin:0 0 22px;
+  }
+  .hero p.lead{font-size:1.2rem;color:var(--muted);max-width:60ch;margin:0 0 34px;}
+  .actions{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-block;padding:12px 22px;border-radius:8px;font-weight:600;
+    background:var(--accent);color:#fff;
+  }
+  .btn:hover{background:#245741;text-decoration:none;}
+  .btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);}
+  .btn.ghost:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);}
+
+  .sec-label{color:var(--accent);font-weight:600;font-size:.95rem;margin:0 0 8px;}
+  h2{font-size:1.7rem;font-weight:800;letter-spacing:-.02em;margin:0 0 28px;}
+
+  .about p{max-width:66ch;margin:0 0 16px;color:#2b3a33;}
+
+  /* projects as an ordered index, not shadow cards */
+  .project{
+    display:grid;grid-template-columns:1fr;gap:8px;
+    padding:28px 0;border-top:1px solid var(--line);
+  }
+  .project:first-child{border-top:none;padding-top:0;}
+  .project h3{font-size:1.28rem;font-weight:700;margin:0;}
+  .project .meta{color:var(--muted);font-size:.92rem;}
+  .project p{margin:6px 0 4px;color:#2b3a33;max-width:64ch;}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+  .tag{
+    font-size:.82rem;color:var(--accent);
+    background:var(--accent-soft);border-radius:6px;padding:3px 10px;
+  }
+
+  /* skills */
+  .skill-group{margin-bottom:22px;}
+  .skill-group .g-name{font-weight:700;margin:0 0 8px;}
+  .skill-group .g-items{color:#2b3a33;}
+
+  /* contact */
+  .contact a{font-weight:600;}
+  .contact .row{margin:6px 0;color:#2b3a33;}
+
+  footer{
+    max-width:var(--maxw);margin:0 auto;padding:40px 24px 64px;
+    color:var(--muted);font-size:.88rem;border-top:1px solid var(--line);
+  }
+
+  @media (min-width:720px){
+    .project{grid-template-columns:230px 1fr;column-gap:32px;}
+    .project .side{grid-column:1;}
+    .project .body{grid-column:2;}
+  }
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <span class="brand">Celestrial-dv</span>
+    <div class="nav-links">
+      <a href="#about">소개</a>
+      <a href="#projects">프로젝트</a>
+      <a href="#skills">기술</a>
+      <a href="#contact">연락처</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+  <header class="hero">
+    <p class="kicker">Python Developer</p>
+    <h1>구조로<br>문제를 푸는<br>개발자입니다.</h1>
+    <p class="lead">설정을 한곳에 모으고, 역할을 나누고, 확장 가능한 구조를 먼저 설계합니다. CLI부터 GUI까지 작은 시스템을 직접 만들며 익혔습니다.</p>
+    <div class="actions">
+      <a class="btn" href="#projects">프로젝트 보기</a>
+      <a class="btn ghost" href="https://github.com/Celestrial-dv" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <section id="about" class="about">
+    <p class="sec-label">소개</p>
+    <h2>About</h2>
+    <p>[여기에 한두 문장으로 본인 소개를 적으세요. 예: 파이썬으로 데이터 처리와 GUI 애플리케이션을 만드는 것을 좋아합니다. 코드의 구조와 유지보수성을 중요하게 생각합니다.]</p>
+    <p>설정 기반(config-driven) 설계, 모듈 분리, 버전 이력 관리 같은 원칙을 지키며 프로젝트를 완성해 왔습니다.</p>
+  </section>
+
+  <section id="projects">
+    <p class="sec-label">프로젝트</p>
+    <h2>Projects</h2>
+
+    <article class="project">
+      <div class="side">
+        <h3>Kiost_PJT</h3>
+        <p class="meta">CLI 키오스크 · 팀 프로젝트</p>
+      </div>
+      <div class="body">
+        <p>외부 라이브러리 없이 파이썬으로 만든 텍스트 기반 카페 주문 시스템. 레이어드 모듈 구조로 메뉴·장바구니·회원 스탬프·결제·관리자·매출 집계를 분리해 설계했습니다.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">CSV</span><span class="tag">모듈 설계</span></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="side">
+        <h3>Library_PJT</h3>
+        <p class="meta">PySide6 GUI · 팀 프로젝트</p>
+      </div>
+      <div class="body">
+        <p>도서 관리 GUI 시스템. 권한 기반 화면 구성과 3가지 색상 테마 전환, 공통 테이블 스타일 모듈화를 적용했습니다.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">PySide6</span><span class="tag">GUI</span></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="side">
+        <h3>Qt_Kiost</h3>
+        <p class="meta">Qt GUI</p>
+      </div>
+      <div class="body">
+        <p>CLI 키오스크를 Qt GUI로 옮긴 프로젝트. 카드형 메뉴 그리드와 장바구니 화면을 구현했습니다.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Qt</span></div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="side">
+        <h3>Class_machine</h3>
+        <p class="meta">클래스 기반 자판기</p>
+      </div>
+      <div class="body">
+        <p>config에 컬럼 스키마를 단일 소스로 정의하고, 클래스 기반으로 구매 흐름과 관리자 기능을 구현한 자판기 프로그램.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">OOP</span></div>
+      </div>
+    </article>
+
+  </section>
+
+  <section id="skills">
+    <p class="sec-label">기술</p>
+    <h2>Skills</h2>
+    <div class="skill-group">
+      <p class="g-name">Language</p>
+      <p class="g-items">Python</p>
+    </div>
+    <div class="skill-group">
+      <p class="g-name">GUI</p>
+      <p class="g-items">PySide6 (Qt)</p>
+    </div>
+    <div class="skill-group">
+      <p class="g-name">Tools</p>
+      <p class="g-items">Git · GitHub · VS Code</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <p class="sec-label">연락처</p>
+    <h2>Contact</h2>
+    <div class="row">Email · <a href="mailto:[이메일 주소]">[이메일 주소]</a></div>
+    <div class="row">GitHub · <a href="https://github.com/Celestrial-dv" target="_blank" rel="noopener">github.com/Celestrial-dv</a></div>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Celestrial-dv. Built with GitHub Pages.
+</footer>
+
+</body>
+</html>
